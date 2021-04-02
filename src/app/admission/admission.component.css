@@ -1,0 +1,34 @@
+.admission-container {
+    width: 100%;
+}
+
+.admission-header {
+    display: flex;
+    margin-top: 50px;
+}
+
+.separator {
+    margin: auto 0;
+    border-bottom: 3px solid rgb(76, 140, 158);
+}
+
+.separator-text {
+    width: 15%;
+    text-align: center;
+    padding: 0 5px;
+    font-size: 1.5rem;
+    color: #222222;
+    font-weight: 800;
+}
+
+.separator-left {
+    width: 25%;
+}
+
+.separator-right {
+    width: 60%;
+}
+
+.container .row:last-child{
+    padding-bottom: 200px;
+}

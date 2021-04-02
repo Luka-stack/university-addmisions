@@ -1,0 +1,15 @@
+<div class="admission-container">
+    <div class="admission-header">
+        <div class="separator separator-left"></div>
+        <div class="separator-text">Ongoing Admissions</div>
+        <div class="separator separator-right"></div>
+    </div>
+
+    <div class="container">
+        <div class="row" *ngFor="let admission of admissions;let id=index;">
+            <div class="col-md-12">
+                <app-admision-tile [admission]="admission" [collapsed]="id >= 1"></app-admision-tile>
+            </div>
+        </div>
+    </div>
+</div>

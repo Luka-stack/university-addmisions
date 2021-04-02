@@ -1,0 +1,44 @@
+<div class="field-container">
+
+    <div class="page-header">
+        <div class="header-text">
+            <h1>{{ field.name }}</h1>
+            <h5><i>{{ field.faculty }}</i></h5>
+        </div>
+        <div class="header-logo">
+            <img src="../../../assets/imgs/{{ logoName }}" alt="" width="300px">
+        </div>
+    </div>
+
+    <div class="skew-c"></div>
+    <div class="colour-block">
+        <div class="field-description">
+            <h3><ul class="check-list odd-color"><li>Opis Kierunku</li></ul></h3>
+            <p>
+                {{ field.description }}
+            </p>
+        </div>
+    </div>
+    <div class="skew-cc"></div>
+
+    <div class="white-block">
+        <div class="field-benefits">
+            <h3>
+                <ul class="check-list"><li>Dlaczego warto stu­diować</li></ul>
+            </h3>
+            <p [innerHtml]="field.benefits" class="inner-p"></p>
+        </div>
+    </div>
+
+    <div class="skew-c"></div>
+    <div class="colour-block">
+        <div class="field-specializations">
+            <h3 style="color: #f1f1f1;"><ul class="check-list odd-color"><li>Specjalizacje kierunku</li></ul></h3>
+
+            <div class="link-wrapper" *ngFor="let spec of field.specializations">
+                <a href="#">{{ spec.name }}</a>
+            </div>
+        </div>
+    </div>
+
+</div>

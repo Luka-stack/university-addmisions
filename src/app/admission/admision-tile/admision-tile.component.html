@@ -1,0 +1,48 @@
+<div class="tile">
+
+    <div class="content">
+        <div class="header" (click)="toggle()" [@showHeader]="collapsed? 'show' : 'initial'">
+            <ul class="flat-list">
+                <li> <b> Filed of Study:      </b> {{ admission.field }} </li>
+                <li> <b> Faculty:             </b> {{ admission.faculty }} </li>
+                <li> <b> Capacity:            </b> {{ admission.capacity }} </li>
+                <li> 
+                    {{ admission.startDate | date:'mediumDate' }} —
+                    {{ admission.endDate | date:'mediumDate' }} 
+                </li>
+            </ul>
+        </div>
+
+        <div class="description" [@smoothCollapse]="collapsed? 'initial' : 'final'">
+            <ul class="list">
+                <li> <b> Filed of Study:      </b> {{ admission.field }} </li>
+                <li> <b> Faculty:             </b> {{ admission.faculty }} </li>
+                <li> <b> Capacity:            </b> {{ admission.capacity }} </li>
+                <li> <b> Place of Lecturers:  </b> {{ admission.lecturersPlace }} </li>
+                <li> <b> Place of Submission: </b> {{ admission.submissionPlace }} </li>
+                <li>
+                    <b> Requirements: </b>
+                    <p> {{ admission.requirements }} </p>
+                </li>
+                <li>
+                    <b> Description: </b>
+                    <p> {{ admission.description }} </p>
+                </li>
+            </ul>
+
+            <div class="date">
+                <div class="date-header">Due Date</div>
+                <div class="date-description">
+                    {{ admission.startDate | date:'mediumDate' }} —
+                    {{ admission.endDate | date:'mediumDate' }}
+                </div>
+            </div>
+
+            <a href="#" class="button">Apply</a>
+        </div>
+    </div>
+
+    <div class="chevron" (click)="toggle()" [@rotatedState]="collapsed? 'default' : 'rotated'">
+        <fa-icon class="action-icon" [icon]="faChevronLeft"></fa-icon>
+    </div>
+</div>

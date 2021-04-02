@@ -1,0 +1,129 @@
+.field-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 100px;
+    min-height: 250px;
+    box-shadow: rgba(76, 140, 158, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    /* box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; */
+}
+
+.field-card:hover {
+    box-shadow: rgba(76, 140, 158, 0.56) 0px 22px 70px 4px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+
+.content-container {
+    width: 70%;
+    padding: 10px 50px;
+}
+
+.logo {
+    width: 250px;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+}
+
+.header-container {
+    cursor: pointer;
+}
+
+.header-container > h3 {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+}
+
+.description-container {
+    cursor: pointer;
+}
+
+.links-container > h5 {
+    margin: 0 auto;
+}
+
+.link-wrapper {
+    margin: 20px 0;
+}
+
+.links-container a {
+    /* display: block; */
+    margin: 0 auto;
+    padding: 0.7rem 1.25rem;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #222;
+    position: relative;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    z-index: 1;
+}
+
+.links-container a:after {
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    right: 1.25rem;
+    left: 1.25rem;
+    background-color: #4c8c9e;
+    transition: all .3s cubic-bezier(.2, 0, 0, 1);
+    transform-origin: bottom center;
+    z-index: -1;
+}
+        
+.links-container a:hover {
+    color: #222;
+}
+
+.links-container a:hover:after {
+    right: 0;
+    left: 0;
+    height: 100%;
+}
+
+
+/* Spacer */
+.spacer-vertical {
+    display: inline-block;
+    /* margin-top: 100px;  */
+    /* margin-left: 100px;  */
+    width: 0px; 
+    position: relative;
+}
+    
+.mask { 
+    overflow: hidden; 
+    width: 20px; 
+    height: 200px; 
+}
+
+.spacer-vertical.left .mask:after { 
+    content: ''; 
+    display: block; 
+    margin-left: -20px;
+    width: 20px; 
+    height: 100%;  
+    border-radius: 12px / 125px;  
+    box-shadow: 0 0 8px rgb(76, 140, 158);
+}
+
+.spacer-vertical.right .mask:before { 
+    content: ''; 
+    display: block; 
+    /* margin-left: 20px; */
+    width: 20px; 
+    height: 100%; 
+    border-radius: 12px / 125px; 
+    box-shadow: 0 0 8px rgb(76, 140, 158);
+}

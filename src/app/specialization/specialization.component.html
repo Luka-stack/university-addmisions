@@ -1,0 +1,62 @@
+<div class="spec-container">
+
+    <!-- <div class="separator separator-right"></div> -->
+
+    <div class="page-header">
+        <div class="header-text">
+            <h1>{{ specialization.name }}</h1>
+            <h5><i>
+                <a [routerLink]="['/fields/', getCorrectLink(specialization.field.name)]">
+                    {{ specialization.field.name }}
+                </a>
+            </i></h5>
+        </div>
+    </div>
+
+    <div class="scallop-up"></div>
+    <div class="colour-block">
+        <div class="spec-description">
+            <h3><ul class="check-list odd-color"><li>Opis specjalizacji</li></ul></h3>
+            <p>
+                {{ specialization.description }}
+            </p>
+        </div>
+    </div>
+    <div class="scallop-down"></div>
+    
+    <div *ngIf="specialization.knowledge.length > 0">
+        <div class="white-block">
+            <div class="spec-benefits">
+                <h3>
+                    <ul class="check-list"><li>Wiedza do zdobycia</li></ul>
+                </h3>
+                <p [innerHtml]="specialization.knowledge" class="inner-p"></p>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="specialization.jobs.length > 0">
+        <div [ngClass]="{'scallop-up': specialization.knowledge.length > 0}"></div>
+        <div [ngClass]="{'colour-block': specialization.knowledge.length > 0,
+                         'white-block': specialization.knowledge.length == 0}">
+            <div class="spec-benefits" [ngClass]="{'odd-color': specialization.knowledge.length > 0}">
+                <h3>
+                    <ul class="check-list"><li>Możliwa przyszła praca</li></ul>
+                </h3>
+                <p [innerHtml]="specialization.jobs" class="inner-p"></p>
+            </div>
+        </div>
+        <div [ngClass]="{'scallop-down': specialization.knowledge.length > 0}"></div>
+    </div>
+
+    <div class="white-block" *ngIf="otherSpecialization.length > 0">
+        <div class="spec-specializations">
+            <h3><ul class="check-list"><li>Inne specjalizacje tego kierunku</li></ul></h3>
+
+            <div class="link-wrapper" *ngFor="let spec of otherSpecialization">
+                <a [routerLink]="['/specializations/', getCorrectLink(spec)]">{{ spec }}</a>
+            </div>
+        </div>
+    </div>
+
+</div>

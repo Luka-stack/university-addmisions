@@ -1,0 +1,78 @@
+<div class="building-slider-container">
+    <owl-carousel-o [options]="buildingSliderOptions">
+        <ng-container *ngFor="let building of buildingSliders">
+            <ng-template carouselSlide [id]="building.id">
+                <img [src]="building.src" [alt]="building.alt" [title]="building.title" class="building-img">
+                <div class="carousel-jumbotron" [ngClass]="building.class">
+                    <h3>Lorem, ipsum.</h3>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, eius!
+                    </p>
+                </div>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>
+
+<div class="info-card-container  blur-background">
+    <div class="size-block">
+        <div class="info-card-container-header">
+            <h2>Reasons why you should choose us</h2>
+        </div>
+        
+        <owl-carousel-o [options]="infoCardsOptions">
+            <ng-container *ngFor="let card of infoCards;let id=index;">
+                <ng-template carouselSlide [id]="id">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-card-count" [style.background-image]="card.gradient">{{ id+1 }}</div>
+                        </div>
+                
+                        <div class="info-card-content">
+                            <h3>{{ card.title }}</h3>
+                            {{ card.description }}
+                        </div>
+                
+                        <div class="info-card-footer" [style.background-image]="card.gradient">
+                            {{ card.footer }}
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-container>
+        </owl-carousel-o>
+    </div> 
+</div>
+
+<div class="stats-divider">
+    
+        <div class="size-block">
+            <div class="row">
+                <div class="col-md-4 stats-info">
+                    <h1><i>106</i></h1>
+                    <h2><i>Certified Lecturers</i></h2>
+                </div>
+                <div class="col-md-4 stats-info">
+                    <h1><i>4</i></h1>
+                    <h2><i>Degree Courses</i></h2>
+                </div>
+                <div class="col-md-4 stats-info">
+                    <h1><i>8</i></h1>
+                    <h2><i>Specialization</i></h2>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-md-12 center-div">
+                    <div class="inner-div">
+                        <h2>Invest in your Future</h2>
+                        <button class="apply-button" routerLink="admissions">
+                            Apply Today
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="divider">
+</div>

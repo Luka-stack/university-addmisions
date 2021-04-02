@@ -1,0 +1,237 @@
+.building-slider-container {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.building-img {
+    height: 720px;
+}
+
+.left-down {
+    left: 15%;
+    top: 50%;
+}
+
+.right-up {
+    left: 55%;
+    top: 25%
+}
+
+.center {
+    top: 35%;
+    left: 35%;
+}
+
+.carousel-jumbotron {
+    position: absolute;
+    z-index: 9999;
+    /* top: 35%; */
+    /* left: 35%; */
+    background-color: rgba(0, 0, 0, 0.533);
+    color: white;
+    width: 30%;
+    padding: 0;
+    text-align: center;
+    transform-origin: top;
+
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.carousel-jumbotron p {
+    padding-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.carousel-jumbotron h3 {
+    padding: 10px 0;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.95);
+
+}
+
+.carousel-jumbotron h3:before,
+.carousel-jumbotron h3:after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 2px;
+    position: absolute;
+    top: 49%;
+    background-color: #f1f1f1;
+}
+
+.carousel-jumbotron h3:before {
+    left: -90px;
+}
+.carousel-jumbotron h3:after {
+    right: -90px;
+}
+
+.info-card-container {
+    width: 100%;
+    margin: 0 auto;
+    /* background-color: #6c9eac; */
+}
+
+.size-block {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.blur-background {
+    background-color: rgba(108, 158, 172, 0.3);
+    padding-bottom: 20px;
+}
+
+.info-card-container-header > h2 {
+    text-align: center;
+    padding-top: 30px;
+    color: #222;
+    margin-top: 0;
+}
+
+.info-card {
+    margin: 20px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    background-color: #f1f1f1;
+}
+
+.info-card-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 180px;
+    padding: 20px 0px;
+}
+
+.info-card-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #e0e0e0;
+    font-size: 3rem;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: auto;
+    margin-right: -50px;
+    overflow: hidden;
+    transition: all 0.2 ease-in-out;
+}
+
+.info-card-content {
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.info-card-content > h3 {
+    margin: 0;
+    text-align: left;
+}
+
+.info-card-footer {
+    padding: 10px 20px;
+}
+
+/* .scallop-up {
+    height: 30px;
+    width: 100%;
+    background-image: -webkit-gradient(radial, 50% 100%, 10, 50% 100%, 40, from(#6c9eac), color-stop(0.49, #6c9eac), color-stop(0.51, #e0e0e0), to(#e0e0e0));
+    -webkit-background-size: 49px 100%;
+}
+
+.scallop-down {
+    height:100px;
+    width:100%;
+    background: -webkit-gradient(radial, 50% 0, 10, 50% 0, 40, from(#6c9eac), color-stop(0.49, #6c9eac), color-stop(0.51, #e0e0e0), to(#e0e0e0));
+    -webkit-background-size: 49px 100%;
+} */
+
+.divider {
+    width: 100%;
+    height: 145px;
+}
+
+::ng-deep .owl-theme .owl-dots .owl-dot.active span {
+    background: #222 !important;
+}
+
+::ng-deep .owl-theme .owl-dots .owl-dot span {
+    background: #FFF !important;
+}
+
+.stats-divider {
+    margin-top: 50px;
+    width: 100%;
+    height: 1042px;
+    background-image: url("../../assets/imgs/uz_placeholder2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.stats-info {
+    text-align: center;
+}
+
+.stats-info > h1 {
+    margin-top: 50px;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    color: #d00101;
+    text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.6);
+}
+
+.stats-info > h2 {
+    margin-top: 0;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    color: #d00101;
+    text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.6);
+}
+
+.inner-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2.5px;
+    background-clip: content-box;
+    border: 2.5px solid rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+    
+}
+
+.inner-div  > h2 {
+    margin: 30px 50px;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    color: #222;
+}
+
+.center-div {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.apply-button {
+    width: 150px;
+    padding: 5px 0;
+    margin-bottom: 30px;
+    align-self: center;
+    border-radius: 5px;
+    letter-spacing: 0.12rem;
+    font-size: 1.1rem;
+    border: 1px solid #d00101;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #d00101;
+    font-family: 'Poiret One', cursive;
+}

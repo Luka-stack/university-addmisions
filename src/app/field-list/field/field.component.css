@@ -1,0 +1,169 @@
+.field-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.page-header h1 {
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.page-header h5 {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo {
+    margin-left: 100px;
+}
+
+.page-divider {
+    height: 50px;
+}
+
+.field-description {
+    max-width: 1024px;
+    margin: 0 auto;
+    color: #f1f1f1;
+}
+
+.field-description > p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+}
+
+.field-description > h3 {
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+.field-benefits {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.field-benefits > p {
+    font-size: 1.26rem;
+    font-weight: 400;
+}
+
+.field-benefits > h3 {
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.field-specializations {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-bottom: 200px;
+}
+
+/* .field-specializations a {
+    text-decoration: none;
+    color: black;
+}
+
+.field-specializations h3 {
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    margin-top: 0px;
+} */
+
+.check-list li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -13px;
+    top: -23px;
+    width: 20px;
+    height: 44px;
+    border-width: 0 2px 2px 0;
+    border-style: solid;
+    border-color: #4c8c9e;
+    transform-origin: bottom left;
+    transform: rotate(45deg);
+}
+
+.odd-color li:before {
+    border-color: #f1f1f1;
+}
+
+.check-list li {
+  position: relative;
+  list-style-type: none;
+  padding-left: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.link-wrapper {
+    margin-left: 80px;
+    margin-bottom: 15px;
+    padding: 7px 20px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.link-wrapper:hover {
+    background-color: #f1f1f1;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    /* border-bottom: 1px solid white; */
+}
+
+.link-wrapper a {
+    text-decoration: none;
+    color: #222;
+    font-size: 1.2rem;
+}
+
+/* Dividers */
+.colour-block {
+    background:#4c8c9e;
+    width: 100%;
+    padding: 7% 0 3% 0;
+    /* color:#fff; */
+  }
+
+.white-block {
+    background:#f1f1f1;
+    width: 100%;
+    padding: 7% 0 3% 0;
+    color: #437B8A;
+    color: #222;
+}
+
+/*  SKEW COUNTER CLOCKWISE  */
+.skew-cc {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    left: 0px;
+    background: linear-gradient(to right bottom, #4c8c9e 49%, #f1f1f1 50%), linear-gradient(-50deg, #f1f1f1 16px, #000 0);
+}
+    
+/* SKEW CLOCKWISE  */
+.skew-c {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    left: 0px;
+    background: linear-gradient(to left bottom, #f1f1f1 49%, #4c8c9e 50%);
+}
+
