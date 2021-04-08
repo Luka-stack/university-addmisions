@@ -1,0 +1,83 @@
+<div class="registration-container">
+
+    <div class="sidebar-content">
+
+        <div class="registration-box">
+
+            <h2>Tworzenie konta</h2>
+
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+                <div class="user-double-box">
+                    <div class="user-box">
+                        <input type="text" name="firstName" id="firstName" [formControlName]="'firstName'" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" required>
+                        <label>Imię</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="text" name="lastName" id="lastName" [formControlName]="'lastName'" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" required>
+                        <label>Nazwisko</label>
+                    </div>
+                </div>
+
+                <div class="user-box">
+                    <input type="text" name="email" id="email" [formControlName]="'email'" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
+                    <label>Email</label>
+                </div>
+
+                <div class="user-double-box">
+                    <div class="user-box">
+                        <input type="password" name="password" id="password" [formControlName]="'password'" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+                        <label>Hasło</label>
+                    </div>
+                    <div class="user-box">
+                        <input type="password" name="passwordConfirm" id="passwordConfirm" [formControlName]="'passwordConfirm'" [ngClass]="{ 'is-invalid': submitted && f.passwordConfirm.errors }" required>
+                        <label>Potwierdź</label>
+                    </div>
+                </div>
+
+                <div class="errors" *ngIf="!f.firstName.valid && f.firstName.touched">
+                    Imię może zawierać tylko litery!
+                </div>
+
+                <div class="errors" *ngIf="!f.lastName.valid && f.lastName.touched">
+                    Nazwisko może zawierać tylko litery!
+                </div>
+                <div class="errors" *ngIf="!f.email.valid && f.email.touched">
+                    Nieprawidłowy email!
+                </div>
+                <div class="errors" *ngIf="!f.password.valid && f.password.touched">
+                    Hasło musi zwierać minimum 8 znaków. <br />Jedną duża, małą literę i jedną liczbę!
+                </div>
+                <div class="errors" *ngIf="f.passwordConfirm.errors.mustMatch && f.passwordConfirm.touched">
+                    Hasła się nie zgadzają!
+                </div>
+
+                <div class="user-box">
+                    <button class="login-button">Stwórz konto</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="login-box">
+            <p>Masz już konto?<a routerLink="/login">Zaloguj się!</a>
+        </div>
+
+        <div class="back-link">
+            <a class="link link--arrowed" routerLink="/home">
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <g fill="none" stroke="#2175FF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
+                        <circle class="arrow-icon--circle" cx="16" cy="16" r="15.12"></circle>
+                        <path class="arrow-icon--arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path>
+                    </g>
+                </svg>
+                Strona Główna
+            </a>
+        </div>
+
+    </div>
+
+    <div class="image-content">
+    </div>
+
+</div>

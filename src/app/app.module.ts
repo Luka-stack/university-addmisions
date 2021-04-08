@@ -18,6 +18,10 @@ import { FieldComponent } from './field-list/field/field.component';
 import { FieldCardComponent } from './field-list/field-card/field-card.component';
 import { TruncatePipe } from './utilities/truncate.pipe';
 import { SpecializationComponent } from './specialization/specialization.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { ContentLayoutComponent } from './content-layout/content-layout.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,7 +36,10 @@ import { SpecializationComponent } from './specialization/specialization.compone
     FieldListComponent,
     FieldCardComponent,
     TruncatePipe,
-    SpecializationComponent
+    SpecializationComponent,
+    LogInComponent,
+    ContentLayoutComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,9 @@ import { SpecializationComponent } from './specialization/specialization.compone
     FontAwesomeModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    CarouselModule
+    CarouselModule,
+    // FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
