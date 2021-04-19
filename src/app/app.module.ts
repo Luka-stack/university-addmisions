@@ -22,7 +22,21 @@ import { LogInComponent } from './log-in/log-in.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { DashboardLayoutComponent } from './dashboard/dashboard-layout/dashboard-layout.component';
+import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
+import { DashboardSidebarComponent } from './dashboard/dashboard-sidebar/dashboard-sidebar.component';
+import { DashboardAdmissionsComponent } from './dashboard/dashboard-admissions/dashboard-admissions.component';
+import { DashboardPageHeaderComponent } from './dashboard/dashboard-page-header/dashboard-page-header.component';
+import { DashboardFieldsComponent } from './dashboard/dashboard-fields/dashboard-fields.component';
+import { DashboardSpecializationsComponent } from './dashboard/dashboard-specializations/dashboard-specializations.component';
+import { DashboardAdmissionFormComponent } from './dashboard/dashboard-admission-form/dashboard-admission-form.component';
+import { DashboardSpecializationFormComponent } from './dashboard/dashboard-specialization-form/dashboard-specialization-form.component';
+import { DashboardFieldFormComponent } from './dashboard/dashboard-field-form/dashboard-field-form.component';
+import { DashboardDashboardComponent } from './dashboard/dashboard-dashboard/dashboard-dashboard.component';
+import { DashboardProfileComponent } from './dashboard/dashboard-profile/dashboard-profile.component';
+import { ProfilePasswordComponent } from './profile/profile-password/profile-password.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,7 +53,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SpecializationComponent,
     LogInComponent,
     ContentLayoutComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    DashboardLayoutComponent,
+    DashboardHeaderComponent,
+    DashboardSidebarComponent,
+    DashboardAdmissionsComponent,
+    DashboardPageHeaderComponent,
+    DashboardFieldsComponent,
+    DashboardSpecializationsComponent,
+    DashboardAdmissionFormComponent,
+    DashboardSpecializationFormComponent,
+    DashboardFieldFormComponent,
+    DashboardDashboardComponent,
+    DashboardProfileComponent,
+    ProfilePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +76,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatExpansionModule,
     CarouselModule,
     // FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    EditorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

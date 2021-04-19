@@ -1,0 +1,53 @@
+<div class="page-container">
+
+    <div class="welcome-card">
+        <div class="welcome-wrapper">
+            <span>Witamy na platformie</span>
+        </div>
+        
+        <div class="day-wrapper">
+            <span>Dzisiaj jest {{ getCurrentDate() }}</span>
+        </div>
+    </div>
+
+    <div class="summary-row">
+        <div class="summary-admissions" routerLink="/dashboard/admissions/new">
+
+            <div class="border-wrapper">
+                <div>
+                    <fa-icon class="admission-icon card-icon" [icon]="admissionsIcon"></fa-icon>
+                </div>
+                <div>
+                    <h4>Liczba rekrutacji</h4>
+                </div>
+                <div class="count-wrapper">{{ 12 }}</div>
+            </div>
+
+        </div>
+
+        <div class="summary-fields" routerLink="/dashboard/fields/new">
+            <div class="border-wrapper">
+                <div>
+                    <fa-icon class="fields-icon card-icon" [icon]="fieldsIcon"></fa-icon>
+                </div>
+                <div>
+                    <h4>Liczba Kierunków</h4>
+                </div>
+                <div class="count-wrapper">{{ 3 }}</div>
+            </div>
+        </div>
+
+        <div class="summary-specs" routerLink="/dashboard/specializations/new">
+            <div class="border-wrapper">
+                <div>
+                    <fa-icon class="spec-icon card-icon" [icon]="specializationsIcon"></fa-icon>
+                </div>
+                <div>
+                    <h4>Liczba Specjalizacji</h4>
+                </div>
+                <div class="count-wrapper">{{ 8 }}</div>
+            </div>
+        </div>
+    </div>
+
+</div>

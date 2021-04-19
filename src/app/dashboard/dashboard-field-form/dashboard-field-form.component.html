@@ -1,0 +1,88 @@
+<div class="form-container">
+
+    <div class="form-title">
+        <h3>Nowy Kierunek</h3>
+    </div>
+
+    <form>
+        
+        <div class="form-row">
+
+            <div class="form-group">
+                
+                <div class="form-field-control">
+                    <h5 class="field-label">Nazwa Kierunku</h5>
+                    <input type="text" name="" id="" placeholder="Podaj nazwę...">
+                </div>
+            
+            </div>
+
+            <div class="form-group">
+
+                <div class="form-field-control">
+                    <h5 class="field-label">Wydział</h5>
+                    <div class="select-wrapper">
+                        <select name="" id="">
+                            <option selected disabled>Wybierz wydział</option>
+                            <option value="2">Great</option>
+                            <option value="3">Nice Solution</option>
+                            <option value="4">Awesome</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <div class="form-field-control">
+                    <h5 class="field-label">Opis kierunku</h5>
+                    <editor [init]="{
+                        height: 200,
+                        menubar: false,
+                        plugins: [
+                            'advlist autolink lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table paste code help wordcount'
+                        ],
+                        toolbar:
+                            'undo redo | formatselect | bold italic backcolor | \
+                            alignleft aligncenter alignright alignjustify | \
+                            bullist numlist outdent indent | removeformat | help'
+                        }">
+                    </editor>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <div class="form-field-control">
+                    <h5 class="field-label">Dlaczego warto studiować</h5>
+                    <editor [init]="{
+                        height: 200,
+                        menubar: false,
+                        plugins: [
+                            'advlist autolink lists link image charmap print preview anchor',
+                            'searchreplace visualblocks code fullscreen',
+                            'insertdatetime media table paste code help wordcount'
+                        ],
+                        toolbar:
+                            'undo redo | formatselect | bold italic backcolor | \
+                            alignleft aligncenter alignright alignjustify | \
+                            bullist numlist outdent indent | removeformat | help'
+                        }">
+                    </editor>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-button-row">
+            <button class="btn btn-back" (click)="onBackClick()">Cofnij</button>
+            <button class="btn btn-add">Zapisz</button>
+        </div>
+
+    </form>
+
+</div>

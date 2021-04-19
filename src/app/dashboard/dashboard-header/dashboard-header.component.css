@@ -1,0 +1,44 @@
+.navigation-bar {
+    background-color: #4c8c9e;
+    height: 56px;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 56px;
+    max-width: 1024px;
+    margin-right: 50px;
+}
+
+.navigation-button {
+    padding: 0px 20px;
+    /* border-left: 2px solid #FFF; */
+}
+
+.vertical-separator {
+    border-right: 2px solid #FFF;
+    /* width: 10px; */
+    height: 30px;
+}
+
+.navigation-button a {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 1rem;
+    font-weight: 450;
+}
+
+.navigation-button:hover a {
+	font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 100px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+  

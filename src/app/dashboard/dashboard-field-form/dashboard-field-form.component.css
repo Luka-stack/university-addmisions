@@ -1,0 +1,206 @@
+.form-container {
+    width: 80%;
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.form-title {
+    display: flex;
+    justify-content: center;
+}
+
+.form-title h3 {
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: "Poppins", sans-serif;	
+    text-shadow: 3px 2px 2px rgba(150, 150, 150, 0.64);
+}
+
+.form-group:first-child {
+    margin-top: 0px;
+}
+
+.form-group {
+    margin-top: 0px;
+    /* margin-left: 20px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form-group h4 {
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.form-db-col-row {
+    display: flex;
+}
+
+.form-field-control {
+    margin: 20px 0px;
+}
+
+.form-field-control h5 {
+    margin: 0;
+    padding: 0;
+
+    margin-bottom: 10px;
+}
+
+.form-db-col-row .form-field-control {
+    margin-right: 30px;
+}
+
+.form-button-row {
+    display: flex;
+    justify-content: center;
+}
+
+.form-button-row button {
+    margin-right: 50px;
+}
+
+/* Custom Select Styling */
+
+/* Reset Select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #FFF;
+    background-image: none;
+}
+
+/* Custom Select */
+.select-wrapper {
+    position: relative;
+    display: flex;
+    width: 30em;
+    height: 3em;
+    line-height: 3;
+    background: #FFF;
+    /* border: 1px solid #222; */
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+
+.select-wrapper:hover {
+    box-shadow: rgba(76, 140, 158, 0.8) 0px 2px 4px 0px, rgba(76, 140, 158, 0.9) 0px 2px 16px 0px;
+}
+
+select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #222;
+    cursor: pointer;
+}
+
+/* Arrow */
+.select-wrapper::after {
+    content: '\25BC';
+    color: #F1F1F1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #4c8c9e;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+
+/* Custom Input Text styling */
+[type="text"] {
+    border: none;
+    width: 30em;
+    height: 3em;
+    padding: 0 .5em;
+    color: #222;
+    cursor: pointer;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+[type="text"]:hover,
+[type="text"]:focus {
+    box-shadow: rgba(76, 140, 158, 0.8) 0px 2px 4px 0px, rgba(76, 140, 158, 0.9) 0px 2px 16px 0px;
+}
+
+/* tinymyc styling */
+editor {
+    width: 60em;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+editor:hover {
+    box-shadow: rgba(76, 140, 158, 0.8) 0px 2px 4px 0px, rgba(76, 140, 158, 0.9) 0px 2px 16px 0px;
+}
+
+/* Buttons Styling */
+.btn {
+    border: none;
+    font-family: 'Lato';
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    /* padding: 10px 20px; */
+    display: inline-block;
+    margin: 10px 0;
+    /* text-transform: uppercase; */
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 200px;
+}
+
+.btn-add {
+	background: #2ecc71;
+	color: #fff;
+}
+
+.btn-add:hover {
+	background: #27ae60;
+}
+
+.btn-add:active {
+	background: #27ae60;
+	top: 2px;
+}
+
+.btn-back {
+	background: #34495e;
+	color: #fff;
+}
+
+.btn-back:hover {
+	background: #2c3e50;
+}
+
+.btn-back:active {
+	background: #2c3e50;
+	top: 2px;
+}

@@ -53,20 +53,7 @@ export class AdmisionTileComponent implements OnInit {
     this.collapsed = !this.collapsed;    
   }
 
-  // toggleTile() {
-  //   if (this.collapsed) {
-  //     this.collapsed = !this.collapsed;
-  //   }
-  //   else {
-  //     (async () => { 
-  //       await this.delay(200);
-  //       this.collapsed = !this.collapsed;
-  //     })();
-  //   }
-  // }
-
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
-
 }

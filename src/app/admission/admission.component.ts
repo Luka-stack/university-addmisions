@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdmissionModel } from '../shared/model/admission.model';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { AdmissionService } from '../services/admission/admission.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-admission',
@@ -12,37 +14,17 @@ export class AdmissionComponent implements OnInit {
   admissions: Array<AdmissionModel>;
   faPlus = faPlus;
 
-  constructor() {
-    this.admissions = [
-      {
-        "id": 1,
-        "field": "Elektromechanika",
-        "faculty": "Informatyki, Elektroniki i Automatyki",
-        "capacity": 1000,
-        "lecturersPlace": "Example Street 1",
-        "submissionPlace": "Example Street 1",
-        "startDate": new Date("2020-01-01"),
-        "endDate": new Date("2020-02-01"),
-        "requirements": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos minima voluptatibus harum nisi excepturi corrupti labore facilis, vitae voluptates.",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos minima voluptatibus harum nisi excepturi corrupti labore facilis, vitae voluptates."
-      },
-      {
-        "id": 2,
-        "field": "Example Field 2",
-        "faculty": "Example Faculty 2",
-        "capacity": 600,
-        "lecturersPlace": "Example Street 2",
-        "submissionPlace": "Example Street 2",
-        "startDate": new Date("2020-05-01"),
-        "endDate": new Date("2020-08-01"),
-        "requirements": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos minima voluptatibus harum nisi excepturi corrupti labore facilis, vitae voluptates.",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id dignissimos minima voluptatibus harum nisi excepturi corrupti labore facilis, vitae voluptates."
-      }
-    ];
-  }
+  constructor(private admissionService: AdmissionService) {  }
 
   ngOnInit(): void {
-    
+    this.getAdmissions();
   }
 
+  getAdmissions() {
+    this.admissionService.getAllAdmissions().subscribe(data => {
+      this.admissions = data;
+    }, error => {
+      throwError(console.error());
+    });
+  }
 }

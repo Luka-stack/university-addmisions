@@ -1,0 +1,45 @@
+<div class="page-container">
+
+    <div class="page-title">
+        <app-dashboard-page-header [title]="'Specjalizacje'" [amount]="'12'"></app-dashboard-page-header>
+    </div>
+
+    <div class="page-content">
+
+        <div class="table-container">
+
+          <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col name-col">Specjalizacja</div>
+                <div class="col name-col">Kierunek</div>
+            </li>
+            <li class="table-row" *ngFor="let spec of specializations" (click)="rowClicked(spec.id)" [class.active]="spec.id === selectedId">
+                <div class="col name-col" >{{ spec.name }}</div>
+                <div class="col name-col" >{{ spec.field.name }}</div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="option-sidebar">
+
+          <div class="option">
+            <button class="btn btn-view btn-sep icon-info" [disabled]="!selected">Podgląd</button>
+          </div>
+
+          <div class="option">
+            <button class="btn btn-add btn-sep icon-plus" routerLink="new">Dodaj</button>
+          </div>
+          
+          <div class="option">
+            <button class="btn btn-edit btn-sep icon-edit" [disabled]="!selected">Edytuj</button>
+          </div>
+          
+          <div class="option">
+            <button class="btn btn-delete btn-sep icon-trash" [disabled]="!selected">Usuń</button>
+          </div>
+          
+        </div>
+
+    </div>
+
+</div>

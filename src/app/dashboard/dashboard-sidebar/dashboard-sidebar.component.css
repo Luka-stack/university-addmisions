@@ -1,0 +1,71 @@
+.navigation {
+    /* border-right: 1px solid rgba(34, 34, 45, 0.1); */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+
+.title {
+    background-color: #e6e9ed;
+    margin: 0px;
+    padding: 10px 20px;
+}
+
+.menu {
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu-link {
+    display: block;
+    text-decoration: none;
+    color: rgba(34, 34, 45, 0.8);
+    font-size: 1.1rem;
+    padding: 5px 20px;
+}
+
+.menu a:hover span,
+.menu a:hover fa-icon {
+    color: #4c8c9e;
+}
+
+.menu a.active {
+    background-color: #4c8c9e;
+    color: #f1f1f1;
+}
+
+.menu a.active:hover span, 
+.menu a.active:hover fa-icon {
+    color: #f1f1f1;
+}
+
+.menu-icon {
+    margin-right: 20px;
+    font-size: 1.5rem;
+    position: relative;
+    top: 2px;
+}
+
+.menu-icon-wrapper {
+    display: inline-block;
+    align-items: center;
+    width: 50px;
+}
+
+.header-bar {
+    background-color: #4c8c9e;
+    height: 56px;
+}
+
+.header-bar span {
+    color: #f1f1f1;
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+.toggle-icon {
+    font-size: 2rem;
+    padding-left: 20px;
+    color: #f1f1f1;
+    cursor: pointer;
+}

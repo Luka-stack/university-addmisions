@@ -1,5 +1,5 @@
 export interface AdmissionModel {
-    id: number;
+    id?: number;
     field: string;
     faculty: string;
     capacity: number;

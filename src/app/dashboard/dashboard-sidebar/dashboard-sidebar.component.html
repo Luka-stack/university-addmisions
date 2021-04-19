@@ -1,0 +1,49 @@
+<div class="navigation">
+
+    <div class="header-bar">
+        <fa-icon class="toggle-icon" [icon]="toggleIcon"></fa-icon>
+    </div>
+
+    <div class="logo">
+        <img src="../../assets/imgs/logo.png" width="100%">
+    </div>
+
+    <h5 class="title">Navigation</h5>
+    <ul class="menu">
+        <a class="menu-link" routerLinkActive="active" routerLink="home">
+            <fa-icon class="menu-icon" [icon]="dashboardIcon" style="padding-left: 5px; padding-top: 100px;"></fa-icon>
+            <span>Dashboard</span>
+        </a>
+        <a class="menu-link" routerLinkActive="active" routerLink="admissions">
+            <div class="menu-icon-wrapper">
+                <fa-icon class="menu-icon" [icon]="admissionsIcon" style="padding-left: 5px;"></fa-icon>
+            </div>
+            <span>Rekrutacje</span>
+        </a>
+        <a class="menu-link" routerLinkActive="active" routerLink="fields">
+            <div class="menu-icon-wrapper">
+                <fa-icon class="menu-icon" [icon]="fieldsIcon"></fa-icon>
+            </div>
+            <span>Kierunki</span>
+        </a>
+        <a class="menu-link" routerLinkActive="active" routerLink="specializations">
+            <div class="menu-icon-wrapper">
+                <fa-icon class="menu-icon" [icon]="specializationsIcon" style="padding-left: 2px;"></fa-icon>
+            </div>
+            <span>Specjalizacje</span>
+        </a>
+    </ul>
+    
+    <h5 class="title">Extra</h5>
+    <ul class="menu">
+        <li>
+            <a class="menu-link" routerLinkActive="active" routerLink="profil">
+                <div class="menu-icon-wrapper">
+                    <fa-icon class="menu-icon" [icon]="profileIcon" style="padding-left: 5px;"></fa-icon>
+                </div>
+                <span>Profil</span>
+            </a>
+        </li>
+    </ul>
+
+</div>

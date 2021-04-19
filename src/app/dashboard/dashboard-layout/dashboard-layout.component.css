@@ -1,0 +1,22 @@
+.main-container {
+    display: flex;
+    background-color: #f5f7fa;
+    height: 100vh;
+}
+
+.left {
+    position: fixed;
+    top: 0;
+    width: 17%;
+}
+
+.right {
+    margin-left: 17%;
+    width: 83%;
+}
+
+.content {
+    background-color: #f5f7fa;
+    padding-bottom: 10px;
+    /* height: 100%; */
+}

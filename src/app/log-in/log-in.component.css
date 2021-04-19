@@ -157,13 +157,13 @@
     margin-bottom: 5px;
     padding: 5px 10px;
     border-radius: 5px;
-    border: 2px solid #DFCFCF;
-    color: #cc3333;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
     font-weight: 500;
     font-size: 1.1rem;
-    background-color: #f1dede;
+    background-color: #f8d7da;
 }
 
 .is-invalid {
-    border-color: #cc3333 !important;
+    border-color: #ddb2b5 !important;
 }

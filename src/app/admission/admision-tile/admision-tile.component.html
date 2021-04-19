@@ -22,11 +22,11 @@
                 <li> <b> Miejsce złożenia wniosku: </b> {{ admission.submissionPlace }} </li>
                 <li>
                     <b> Wymagania: </b>
-                    <p> {{ admission.requirements }} </p>
+                    <p [innerHtml]="admission.requirements">  </p>
                 </li>
                 <li>
                     <b> Opis: </b>
-                    <p> {{ admission.description }} </p>
+                    <p [innerHtml]="admission.description"> </p>
                 </li>
             </ul>
 

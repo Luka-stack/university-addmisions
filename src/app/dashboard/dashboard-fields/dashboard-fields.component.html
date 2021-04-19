@@ -1,0 +1,52 @@
+<div class="page-container">
+
+    <div class="page-title">
+        <app-dashboard-page-header [title]="'Kierunki'" [amount]="'12'"></app-dashboard-page-header>
+    </div>
+
+    <div class="page-content">
+
+        <div class="table-container">
+
+          <ul class="responsive-table">
+            <li class="table-header">
+              <div class="col name-col">Kierunek</div>
+              <div class="col name-col">Wydział</div>
+              <div class="col date-col">Specjalizacje</div>
+            </li>
+
+            <li class="table-row" *ngFor="let field of fields" (click)="rowClicked(field.id)" [class.active]="field.id === selectedId">
+              <div class="col name-col" > {{ field.name }} </div>
+              <div class="col name-col" > {{ field.faculty }} </div>
+              <div class="col date-col" >
+                <span *ngFor="let spec of field.specializations">
+                  {{ spec.name }}
+                </span> <br>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="option-sidebar">
+
+          <div class="option">
+            <button class="btn btn-view btn-sep icon-info" [disabled]="!selected">Podgląd</button>
+          </div>
+
+          <div class="option">
+            <button class="btn btn-add btn-sep icon-plus" routerLink="new">Dodaj</button>
+          </div>
+          
+          <div class="option">
+            <button class="btn btn-edit btn-sep icon-edit" [disabled]="!selected">Edytuj</button>
+          </div>
+          
+          <div class="option">
+            <button class="btn btn-delete btn-sep icon-trash" [disabled]="!selected">Usuń</button>
+          </div>
+          
+        </div>
+
+    </div>
+
+</div>
