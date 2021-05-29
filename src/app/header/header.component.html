@@ -45,23 +45,23 @@
 
                 <div class="user-outer-div">
                     <div class="user-option-dropdown">
-                        <div class="user-option">
+                        <div class="user-option" *ngIf="!isLoggedIn">
                             <a routerLink="/registration">Rejestracja</a>
                         </div>
 
-                        <div class="user-option">
+                        <div class="user-option" *ngIf="!isLoggedIn">
                             <a routerLink="/login">Zaloguj</a>
                         </div>
 
-                        <div class="user-option">
-                            <a href="#">Wyloguj</a>
+                        <div class="user-option" *ngIf="isLoggedIn">
+                            <a [routerLink]="" (click)="logout()">Wyloguj</a>
                         </div>
 
-                        <div class="user-option">
+                        <div class="user-option" *ngIf="isLoggedIn">
                             <a routerLink="profil/password">Profil</a>
                         </div>
 
-                        <div class="user-option">
+                        <div class="user-option" *ngIf="isLoggedIn && !isUser">
                             <a routerLink="/dashboard">Dashboard</a>
                         </div>
                     </div>

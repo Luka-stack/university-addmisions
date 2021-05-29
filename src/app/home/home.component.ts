@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
   buildingSliders = [
     {
       id: 1,
-      src: '../../assets/imgs/UZ_Building_1.jpg',
+      // src: '../../assets/imgs/UZ_Building_1.jpg',
+      src: '../../assets/imgs/uz_placeholder.jpg',
       alt: 'Budynek Uniwersytetu Zielonogórskiego',
       title: 'Budynek Uniwersytetu Zielonogórskiego',
       class: 'center'
@@ -31,7 +33,8 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 3,
-      src: '../../assets/imgs/UZ_Building_3.jpg',
+      // src: '../../assets/imgs/UZ_Building_3.jpg',
+      src: '../../assets/imgs/wiea-building2.jpg',
       alt: 'Budynek Uniwersytetu Zielonogórskiego',
       title: 'Budynek Uniwersytetu Zielonogórskiego',
       class: 'left-down'
@@ -111,10 +114,14 @@ export class HomeComponent implements OnInit {
     nav: false
   }
 
-  constructor() { 
+  constructor(private router: Router) { 
   }
 
   ngOnInit(): void {
+  }
+
+  goToAdmissions() {
+    this.router.navigateByUrl("admissions");
   }
 
 }

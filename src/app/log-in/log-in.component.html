@@ -25,6 +25,9 @@
                 <div class="errors" *ngIf="!f.password.valid && f.password.touched">
                     Podaj hasło!
                 </div>
+                <div class="errors" *ngIf="error">
+                    {{ error }}
+                </div>
 
                 <div class="user-box">
                     <button>Zaloguj Się</button>

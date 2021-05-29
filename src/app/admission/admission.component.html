@@ -1,15 +1,24 @@
 <div class="admission-container">
-    <div class="admission-header">
-        <div class="separator separator-left"></div>
-        <div class="separator-text">Bieżace rekrutacje</div>
-        <div class="separator separator-right"></div>
+  <div class="admission-header">
+    <div class="separator separator-left"></div>
+    <div class="separator-text">Bieżace rekrutacje</div>
+    <div class="separator separator-right"></div>
+  </div>
+
+  <div class="container">
+    <div *ngIf="admissions.length !== 0; else info">
+      <div class="row" *ngFor="let admission of admissions; let id = index">
+        <div class="col-md-12">
+          <app-admision-tile
+            [admission]="admission"
+            [collapsed]="id >= 1"
+          ></app-admision-tile>
+        </div>
+      </div>
     </div>
 
-    <div class="container">
-        <div class="row" *ngFor="let admission of admissions;let id=index;">
-            <div class="col-md-12">
-                <app-admision-tile [admission]="admission" [collapsed]="id >= 1"></app-admision-tile>
-            </div>
-        </div>
-    </div>
+    <ng-template #info
+      ><h3>Obecnie Uniwersytet nie prowadzi rekrutacji</h3></ng-template
+    >
+  </div>
 </div>

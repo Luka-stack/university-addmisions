@@ -48,7 +48,7 @@
                 <div class="errors" *ngIf="!f.password.valid && f.password.touched">
                     Hasło musi zwierać minimum 8 znaków. <br />Jedną duża, małą literę i jedną liczbę!
                 </div>
-                <div class="errors" *ngIf="f.passwordConfirm.errors.mustMatch && f.passwordConfirm.touched">
+                <div class="errors" *ngIf="f.passwordConfirm.errors?.mustMatch && f.passwordConfirm.touched">
                     Hasła się nie zgadzają!
                 </div>
 

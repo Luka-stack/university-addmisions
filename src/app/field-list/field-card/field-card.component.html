@@ -1,7 +1,7 @@
 <div class="field-card">
 
     <div class="logo-container">
-        <img src="../../../assets/imgs/{{logoName}}" class="logo" alt="" (click)="goToField()">
+        <img src="../../../assets/imgs/{{ field.imageUrn }}" class="logo" alt="" (click)="goToField()">
     </div>
 
     <div class="spacer-vertical left">
@@ -17,10 +17,10 @@
                 {{ field.description | limitTo: 250 }}
             </p>
         </div>
-        <div class="links-container" *ngIf="field.specializations.length > 0">
+        <div class="links-container" *ngIf="field.specializations?.length > 0">
             <h5>Specjalizacje</h5>
             <div class="link-wrapper" *ngFor="let spec of field.specializations">
-                <a [routerLink]="['/specializations/', getFieldLink(spec.name)]">{{ spec.name }}</a>
+                <a [routerLink]="['/specializations/', spec]">{{ reverseIdentifier(spec) }}</a>
             </div>
         </div>
     </div>

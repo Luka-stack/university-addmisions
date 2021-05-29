@@ -6,11 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TruncatePipe implements PipeTransform {
 
   transform(value: string, args: string): string {
-    let limit = args ? parseInt(args, 10) : 10;
-    console.log(limit)
-    let trail = '...';
+    const limit = args ? parseInt(args, 10) : 10;
+    const trail = '...';
+    const plainValue = value.replace(/<[^>]*>/g, '');
 
-    return value.length > limit ? value.substring(0, limit) + trail : value;
+    return plainValue.length > limit ? plainValue.substring(0, limit) + trail : plainValue;
   }
 
 }

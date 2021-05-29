@@ -238,3 +238,24 @@ editor:hover {
 	background: #2c3e50;
 	top: 2px;
 }
+
+/* errors */
+.form-errors {
+    margin: 0 auto;
+    width: 60em;
+}
+
+.errors {
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    font-weight: 500;
+    font-size: 1.1rem;
+    background-color: #f8d7da;
+}
+
+.is-invalid {
+    box-shadow: rgba(221,178,181, 0.8) 0px 2px 4px 0px, rgba(221,178,181, 0.9) 0px 2px 16px 0px; 
+}

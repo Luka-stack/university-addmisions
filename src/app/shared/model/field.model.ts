@@ -1,10 +1,10 @@
-import { SpecializationModel } from "./specialization.model";
-
 export interface FieldModel {
-    id: number;
+    id?: number;
     name: string;
+    identifier: string;
     faculty: string;
     description: string;
     benefits: string;
-    specializations: Array<SpecializationModel>;
+    imageUrn: string;
+    specializations?: Array<String>;
 }

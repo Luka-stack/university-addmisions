@@ -127,10 +127,15 @@
     /* border-bottom: 1px solid white; */
 }
 
-.link-wrapper a {
-    text-decoration: none;
+.link-wrapper:hover span {
     color: #222;
+}
+
+.link-wrapper span {
+    text-decoration: none;
+    color: #F1F1F1;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 /* Dividers */
@@ -167,3 +172,6 @@
     background: linear-gradient(to left bottom, #f1f1f1 49%, #4c8c9e 50%);
 }
 
+.inner-p {
+    margin-left: 80px;
+}

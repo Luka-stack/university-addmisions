@@ -1,160 +1,221 @@
 <div class="form-container">
+  <div class="form-title">
+    <div *ngIf="admissionId !== undefined; else title"><h3>Edycja oferty</h3></div>
 
-    <div class="form-title">
-        <h3>Nowa oferta rekrutacyjna</h3>
+    <ng-template #title><h3> Nowa oferta rekrutacyjna </h3></ng-template>
+  </div>
+
+  <form [formGroup]="admissionForm" (ngSubmit)="saveAdmission()">
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Kierunek studiów</h5>
+          <div
+            class="select-wrapper"
+            [ngClass]="{ 'is-invalid': submitted && f.field.errors }"
+          >
+            <select name="field" id="field" [formControlName]="'field'">
+              <option *ngFor="let field of fields" [value]="field.identifier">
+                {{ field.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field-control">
+          <h5 class="field-label">Wydział</h5>
+          <div
+            class="select-wrapper"
+            [ngClass]="{ 'is-invalid': submitted && f.faculty.errors }"
+          >
+            <select name="faculty" id="faculty" [formControlName]="'faculty'">
+              <option selected disabled>Wybierz wydział</option>
+              <option value="{{ facultyKeys[0] }}">{{ faculties.IMEI }}</option>
+              <option value="{{ facultyKeys[1] }}">{{ faculties.ISSI }}</option>
+              <option value="{{ facultyKeys[2] }}">{{ faculties.IAEE }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-db-col-row">
+          <div class="form-field-control">
+            <h5 class="field-label">Od dnia</h5>
+            <div [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }">
+              <input
+                type="date"
+                name="startDate"
+                id="startDate"
+                [formControlName]="'startDate'"
+              />
+            </div>
+          </div>
+
+          <div class="form-field-control">
+            <h5 class="field-label">Do dnia</h5>
+            <div [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }">
+              <input
+                type="date"
+                name="endDate"
+                id="endDate"
+                [formControlName]="'endDate'"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Miejsce składania dokumentów</h5>
+          <div [ngClass]="{ 'is-invalid': submitted && f.submissionPlace.errors }">
+            <input
+              type="text"
+              name="submissionPlace"
+              id="submissionPlace"
+              placeholder="Podaj miejsce..."
+              [formControlName]="'submissionPlace'"
+            />
+          </div>
+        </div>
+
+        <div class="form-field-control">
+          <h5 class="field-label">Miejsce wykładów</h5>
+          <div [ngClass]="{ 'is-invalid': submitted && f.lecturersPlace.errors }">
+            <input
+              type="text"
+              name="lecturersPlace"
+              id="lecturersPlace"
+              placeholder="Podaj miejsce..."
+              [formControlName]="'lecturersPlace'"
+            
+            />
+          </div>
+        </div>
+
+        <div class="form-field-control">
+          <h5 class="field-label">Ilość miejsc</h5>
+          <div [ngClass]="{ 'is-invalid': submitted && f.capacity.errors }">
+            <input
+              type="number"
+              name="capacity"
+              id="capacity"
+              placeholder="Podaj ilość..."
+              [formControlName]="'capacity'"
+              
+            />
+          </div>
+        </div>
+      </div>
     </div>
 
-    <form [formGroup]="admissionForm" (ngSubmit)="saveAdmission()">
-        
-        <div class="form-row">
-
-            <div class="form-group">
-                <div class="form-field-control">
-                    <h5 class="field-label">Kierunek studiów</h5>
-                    <div class="select-wrapper" [ngClass]="{ 'is-invalid': submitted && f.field.errors }">
-                        <select name="field" id="field" [formControlName]="'field'">
-                            <option selected disabled>Wybierz kierunek</option>
-                            <option value="2">Automatyka i Robotyka</option>
-                            <option value="3">Nice Solution</option>
-                            <option value="4">Awesome</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="form-field-control">
-                    <h5 class="field-label">Wydział</h5>
-                    <div class="select-wrapper" [ngClass]="{ 'is-invalid': submitted && f.faculty.errors }">
-                        <select name="faculty" id="faculty" [formControlName]="'faculty'">
-                            <option selected disabled>Wybierz wydział</option>
-                            <option value="2">IMEI</option>
-                            <option value="3">Nice Solution</option>
-                            <option value="4">Awesome</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-db-col-row">
-                    <div class="form-field-control">
-                        <h5 class="field-label">Od dnia</h5>
-                        <input type="date" name="startDate" id="startDate" [formControlName]="'startDate'" [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }">
-                    </div>
-                
-                    <div class="form-field-control">
-                        <h5 class="field-label">Do dnia</h5>
-                        <input type="date" name="endDate" id="endDate" [formControlName]="'endDate'" [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-
-                <div class="form-field-control">
-                    <h5 class="field-label">Miejsce składania dokumentów</h5>
-                    <input type="text" name="submissionPlace" id="submissionPlace" placeholder="Podaj miejsce..." [formControlName]="'submissionPlace'" [ngClass]="{ 'is-invalid': submitted && f.submissionPlace.errors }">
-                </div>
-            
-                <div class="form-field-control">
-                    <h5 class="field-label">Miejsce wykładów</h5>
-                    <input type="text" name="lecturersPlace" id="lecturersPlace" placeholder="Podaj miejsce..." [formControlName]="'lecturersPlace'" [ngClass]="{ 'is-invalid': submitted && f.lecturersPlace.errors }">
-                </div>
-
-                <div class="form-field-control">
-                    <h5 class="field-label">Ilość miejsc</h5>
-                    <input type="number" name="capacity" id="capacity" placeholder="Podaj ilość..." [formControlName]="'capacity'" [ngClass]="{ 'is-invalid': submitted && f.capacity.errors }">
-                </div>
-
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <div class="form-field-control">
-                    <h5 class="field-label">Krótki opis kierunku / korzyści ze studiowania</h5>
-                    <editor name="description" id="description" [formControlName]="'description'" [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
-                    [init]="{
-                        height: 200,
-                        menubar: false,
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table paste code help wordcount'
-                        ],
-                        toolbar:
-                            'undo redo | formatselect | bold italic backcolor | \
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">
+            Krótki opis kierunku / korzyści ze studiowania
+          </h5>
+          <editor
+            name="description"
+            id="description"
+            [formControlName]="'description'"
+            [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+            [init]="{
+              height: 200,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
                             alignleft aligncenter alignright alignjustify | \
                             bullist numlist outdent indent | removeformat | help'
-                        }">
-                    </editor>
-                </div>
-            </div>
+            }"
+          >
+          </editor>
         </div>
+      </div>
+    </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <div class="form-field-control">
-                    <h5 class="field-label">Wymagania</h5>
-                    <editor name="requirements" id="requirements" [formControlName]="'requirements'" [ngClass]="{ 'is-invalid': submitted && f.requirements.errors }"
-                    [init]="{
-                        height: 200,
-                        menubar: false,
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table paste code help wordcount'
-                        ],
-                        toolbar:
-                            'undo redo | formatselect | bold italic backcolor | \
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Wymagania</h5>
+          <editor
+            name="requirements"
+            id="requirements"
+            [formControlName]="'requirements'"
+            [ngClass]="{ 'is-invalid': submitted && f.requirements.errors }"
+            [init]="{
+              height: 200,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
                             alignleft aligncenter alignright alignjustify | \
                             bullist numlist outdent indent | removeformat | help'
-                        }">
-                    </editor>
-                </div>
-            </div>
+            }"
+          >
+          </editor>
         </div>
+      </div>
+    </div>
 
-        <div class="form-errors">
-            <div class="errors" *ngIf="!f.field.valid && f.field.touched">
-                Kierunek musi zostać wybrany.
-            </div>
+    <div class="form-errors">
+      <div class="errors" *ngIf="!f.field.valid && f.field.touched">
+        Kierunek musi zostać wybrany.
+      </div>
 
-            <div class="errors" *ngIf="!f.faculty.valid && f.faculty.touched">
-                Wydział musi zostać wybrany.
-            </div>
+      <div class="errors" *ngIf="!f.faculty.valid && f.faculty.touched">
+        Wydział musi zostać wybrany.
+      </div>
 
-            <div class="errors" *ngIf="!f.startDate.valid && f.startDate.touched">
-                Data rozpoczęcia rekrutacji musi być ustawiona.
-            </div>
+      <div class="errors" *ngIf="!f.startDate.valid && f.startDate.touched">
+        Data rozpoczęcia rekrutacji musi być ustawiona.
+      </div>
 
-            <div class="errors" *ngIf="!f.endDate.valid && f.endDate.touched">
-                Data zakończenia rekrutacji musi być ustawiona.
-            </div>
+      <div class="errors" *ngIf="!f.endDate.valid && f.endDate.touched">
+        Data zakończenia rekrutacji musi być ustawiona.
+      </div>
 
-            <div class="errors" *ngIf="!f.lecturersPlace.valid && f.lecturersPlace.touched">
-                Miejsce wykładów musi być podane.
-            </div>
+      <div
+        class="errors"
+        *ngIf="!f.lecturersPlace.valid && f.lecturersPlace.touched"
+      >
+        Miejsce wykładów musi być podane.
+      </div>
 
-            <div class="errors" *ngIf="!f.submissionPlace.valid && f.submissionPlace.touched">
-                Miejsce składania dokumentów musi być podane.
-            </div>
+      <div
+        class="errors"
+        *ngIf="!f.submissionPlace.valid && f.submissionPlace.touched"
+      >
+        Miejsce składania dokumentów musi być podane.
+      </div>
 
-            <div class="errors" *ngIf="!f.capacity.valid && f.capacity.touched">
-                Ilość miejsc musi być podana.
-            </div>
+      <div class="errors" *ngIf="!f.capacity.valid && f.capacity.touched">
+        Ilość miejsc musi być podana.
+      </div>
 
-            <div class="errors" *ngIf="!f.description.valid && f.description.touched">
-                Opis musi być wypełniony.
-            </div>
+      <div class="errors" *ngIf="!f.description.valid && f.description.touched">
+        Opis musi być wypełniony.
+      </div>
 
-            <div class="errors" *ngIf="!f.requirements.valid && f.requirements.touched">
-                Wymagania muszą być wypełnione.
-            </div>
-        </div>
+      <div
+        class="errors"
+        *ngIf="!f.requirements.valid && f.requirements.touched"
+      >
+        Wymagania muszą być wypełnione.
+      </div>
+    </div>
 
-        <div class="form-button-row">
-            <button class="btn btn-back" (click)="onBackClick()">Cofnij</button>
-            <button class="btn btn-add">Zapisz</button>
-        </div>
-
-    </form>
-
+    <div class="form-button-row">
+      <button class="btn btn-back" (click)="onBackClick()">Cofnij</button>
+      <button class="btn btn-add">Zapisz</button>
+    </div>
+  </form>
 </div>

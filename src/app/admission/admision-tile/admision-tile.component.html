@@ -1,48 +1,61 @@
 <div class="tile">
-
-    <div class="content">
-        <div class="header" (click)="toggle()" [@showHeader]="collapsed? 'show' : 'initial'">
-            <ul class="flat-list">
-                <li> <b> Kierunek:      </b> {{ admission.field }} </li>
-                <li> <b> Wydział:             </b> {{ admission.faculty }} </li>
-                <li> <b> Miejsc:            </b> {{ admission.capacity }} </li>
-                <li> 
-                    {{ admission.startDate | date:'mediumDate' }} —
-                    {{ admission.endDate | date:'mediumDate' }} 
-                </li>
-            </ul>
-        </div>
-
-        <div class="description" [@smoothCollapse]="collapsed? 'initial' : 'final'">
-            <ul class="list">
-                <li> <b> Kierunek:      </b> {{ admission.field }} </li>
-                <li> <b> Wydział:             </b> {{ admission.faculty }} </li>
-                <li> <b> Miejsc:            </b> {{ admission.capacity }} </li>
-                <li> <b> Miejsce wykładów:  </b> {{ admission.lecturersPlace }} </li>
-                <li> <b> Miejsce złożenia wniosku: </b> {{ admission.submissionPlace }} </li>
-                <li>
-                    <b> Wymagania: </b>
-                    <p [innerHtml]="admission.requirements">  </p>
-                </li>
-                <li>
-                    <b> Opis: </b>
-                    <p [innerHtml]="admission.description"> </p>
-                </li>
-            </ul>
-
-            <div class="date">
-                <div class="date-header">Termin</div>
-                <div class="date-description">
-                    {{ admission.startDate | date:'mediumDate' }} —
-                    {{ admission.endDate | date:'mediumDate' }}
-                </div>
-            </div>
-
-            <a href="#" class="button">Aplikuj</a>
-        </div>
+  <div class="content">
+    <div
+      class="header"
+      (click)="toggle()"
+      [@showHeader]="collapsed ? 'show' : 'initial'"
+    >
+      <ul class="flat-list">
+        <li><b> Kierunek: </b> {{ reverseIdentifier(admission.field) }}</li>
+        <li><b> Wydział: </b> {{ admission.faculty }}</li>
+        <li><b> Miejsc: </b> {{ admission.capacity }}</li>
+        <li>
+          {{ admission.startDate | date: "mediumDate" }} —
+          {{ admission.endDate | date: "mediumDate" }}
+        </li>
+      </ul>
     </div>
 
-    <div class="chevron" (click)="toggle()" [@rotatedState]="collapsed? 'default' : 'rotated'">
-        <fa-icon class="action-icon" [icon]="faChevronLeft"></fa-icon>
+    <div
+      class="description"
+      [@smoothCollapse]="collapsed ? 'initial' : 'final'"
+    >
+      <ul class="list">
+        <li><b> Kierunek: </b> {{ reverseIdentifier(admission.field) }}</li>
+        <li><b> Wydział: </b> {{ mapFaculty(admission.faculty) }}</li>
+        <li><b> Miejsc: </b> {{ admission.capacity }}</li>
+        <li><b> Miejsce wykładów: </b> {{ admission.lecturersPlace }}</li>
+        <li>
+          <b> Miejsce złożenia wniosku: </b> {{ admission.submissionPlace }}
+        </li>
+        <li>
+          <b> Wymagania: </b>
+          <p [innerHtml]="admission.requirements"></p>
+        </li>
+        <li>
+          <b> Opis: </b>
+          <p [innerHtml]="admission.description"></p>
+        </li>
+      </ul>
+
+      <div class="date">
+        <div class="date-header">Termin</div>
+        <div class="date-description">
+          {{ admission.startDate | date: "mediumDate" }} —
+          {{ admission.endDate | date: "mediumDate" }}
+        </div>
+      </div>
+
+      <!-- <a href="#" class="button">Aplikuj</a> -->
+      <a [routerLink]="" (click)="apply()" class="button">Aplikuj</a>
     </div>
+  </div>
+
+  <div
+    class="chevron"
+    (click)="toggle()"
+    [@rotatedState]="collapsed ? 'default' : 'rotated'"
+  >
+    <fa-icon class="action-icon" [icon]="faChevronLeft"></fa-icon>
+  </div>
 </div>

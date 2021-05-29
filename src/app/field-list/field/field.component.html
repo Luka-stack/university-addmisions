@@ -3,10 +3,10 @@
     <div class="page-header">
         <div class="header-text">
             <h1>{{ field.name }}</h1>
-            <h5><i>{{ field.faculty }}</i></h5>
+            <h5><i>{{ mapFaculty(field.faculty) }}</i></h5>
         </div>
         <div class="header-logo">
-            <img src="../../../assets/imgs/{{ logoName }}" alt="" width="300px">
+            <img src="../../../assets/imgs/{{ field.imageUrn }}" alt="" width="300px">
         </div>
     </div>
 
@@ -14,8 +14,7 @@
     <div class="colour-block">
         <div class="field-description">
             <h3><ul class="check-list odd-color"><li>Opis Kierunku</li></ul></h3>
-            <p>
-                {{ field.description }}
+            <p [innerHtml]="field.description" class="inner-p">
             </p>
         </div>
     </div>
@@ -35,8 +34,12 @@
         <div class="field-specializations">
             <h3 style="color: #f1f1f1;"><ul class="check-list odd-color"><li>Specjalizacje kierunku</li></ul></h3>
 
-            <div class="link-wrapper" *ngFor="let spec of field.specializations">
-                <a href="#">{{ spec.name }}</a>
+            <!-- <div class="link-wrapper" *ngFor="let spec of field.specializations">
+                <a [routerLink]="['/specializations/', getCorrectLink(spec.name)]">{{ spec.name }}</a>
+            </div> -->
+
+            <div class="link-wrapper" *ngFor="let spec of field.specializations" (click)="goToSpecialization(spec)">
+                <span>{{ reverseIdentifier(spec) }}</span>
             </div>
         </div>
     </div>

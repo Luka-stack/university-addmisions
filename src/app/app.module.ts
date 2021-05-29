@@ -21,7 +21,7 @@ import { SpecializationComponent } from './specialization/specialization.compone
 import { LogInComponent } from './log-in/log-in.component';
 import { ContentLayoutComponent } from './content-layout/content-layout.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { DashboardLayoutComponent } from './dashboard/dashboard-layout/dashboard-layout.component';
 import { DashboardHeaderComponent } from './dashboard/dashboard-header/dashboard-header.component';
@@ -36,7 +36,10 @@ import { DashboardFieldFormComponent } from './dashboard/dashboard-field-form/da
 import { DashboardDashboardComponent } from './dashboard/dashboard-dashboard/dashboard-dashboard.component';
 import { DashboardProfileComponent } from './dashboard/dashboard-profile/dashboard-profile.component';
 import { ProfilePasswordComponent } from './profile/profile-password/profile-password.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxWebstorageModule } from 'ngx-webstorage';
+import { TokenInterceptor } from './token-interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -75,12 +78,19 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatExpansionModule,
     CarouselModule,
-    // FormsModule,
     ReactiveFormsModule,
     EditorModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxWebstorageModule.forRoot(),
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

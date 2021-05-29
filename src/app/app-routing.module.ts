@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { ProfilePasswordComponent } from './profile/profile-password/profile-password.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AuthGuard } from './services/auth/auth.guard';
 import { SpecializationComponent } from './specialization/specialization.component';
 
 const routes: Routes = [
@@ -29,27 +30,27 @@ const routes: Routes = [
     { path: 'specializations/:name', component: SpecializationComponent },
     { path: 'profil/password', component: ProfilePasswordComponent }
   ]},
-
+  
   { path: 'dashboard', redirectTo: 'dashboard/home', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardLayoutComponent, children: [
+  { path: 'dashboard', component: DashboardLayoutComponent, canActivateChild: [AuthGuard], children: [
     { path: 'home', component: DashboardDashboardComponent },
     { path: 'profil', component: DashboardProfileComponent },
     { path: 'admissions', component: DashboardAdmissionsComponent },
-    { path: 'admissions/new', component: DashboardAdmissionFormComponent },
+    { path: 'admissions/new', pathMatch: 'full', component: DashboardAdmissionFormComponent },
     { path: 'admissions/:id', component: DashboardAdmissionFormComponent },
     
     { path: 'fields', component: DashboardFieldsComponent },
-    { path: 'fields/new', component: DashboardFieldFormComponent },
+    { path: 'fields/new', pathMatch: 'full', component: DashboardFieldFormComponent },
     { path: 'fields/:id', component: DashboardFieldFormComponent },
-
+    
     { path: 'specializations', component: DashboardSpecializationsComponent },
-    { path: 'specializations/new', component: DashboardSpecializationFormComponent },
+    { path: 'specializations/new', pathMatch: 'full', component: DashboardSpecializationFormComponent },
     { path: 'specializations/:id', component: DashboardSpecializationFormComponent }
   ]},
-
-  { path: 'login', component: LogInComponent },
-  { path: 'registration', component: RegistrationComponent },
-
+  
+  { path: 'login', component: LogInComponent, canActivate: [AuthGuard] },
+  { path: 'registration', component: RegistrationComponent, canActivate: [AuthGuard] },
+  
 ];
 
 @NgModule({

@@ -1,49 +1,137 @@
 <div class="page-container">
+  <div class="page-title">
+    <app-dashboard-page-header
+      [title]="'Rekrutacje'"
+      [amount]="admissions?.length"
+    ></app-dashboard-page-header>
+  </div>
 
-    <div class="page-title">
-        <app-dashboard-page-header [title]="'Rekrutacje'" [amount]="'12'"></app-dashboard-page-header>
+  <div class="page-content">
+    <div class="table-container">
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col name-col">Field</div>
+          <div class="col name-col">Faculty</div>
+          <div class="col date-col">Start Date</div>
+          <div class="col date-col">End Date</div>
+        </li>
+        <li
+          class="table-row"
+          *ngFor="let admission of admissions"
+          (click)="rowClicked(admission.id)"
+          [class.active]="admission.id === selectedId"
+        >
+          <div class="col name-col">{{ reverseIdentifier(admission.field) }}</div>
+          <div class="col name-col">{{ mapFaculty(admission.faculty) }}</div>
+          <div class="col date-col">
+            {{ admission.startDate | date: "mediumDate" }}
+          </div>
+          <div class="col date-col">
+            {{ admission.endDate | date: "mediumDate" }}
+          </div>
+        </li>
+      </ul>
     </div>
 
-    <div class="page-content">
+    <div class="option-sidebar">
+      <div class="option">
+        <button
+          class="btn btn-view btn-sep icon-info"
+          [disabled]="!selected"
+          (click)="showPreview()"
+        >
+          Podgląd
+        </button>
+      </div>
 
-        <div class="table-container">
+      <div class="option">
+        <button class="btn btn-add btn-sep icon-plus" routerLink="new">
+          Dodaj
+        </button>
+      </div>
 
-          <ul class="responsive-table">
-            <li class="table-header">
-              <div class="col name-col">Field</div>
-              <div class="col name-col">Faculty</div>
-              <div class="col date-col">Start Date</div>
-              <div class="col date-col">End Date</div>
-            </li>
-            <li class="table-row" *ngFor="let admission of admissions" (click)="rowClicked(admission.id)" [class.active]="admission.id === selectedId">
-              <div class="col name-col" >{{ admission.field }}</div>
-              <div class="col name-col" >{{ admission.faculty }}</div>
-              <div class="col date-col" >{{ admission.startDate | date:'mediumDate' }}</div>
-              <div class="col date-col" >{{ admission.endDate | date:'mediumDate' }}</div>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="option-sidebar">
+      <div class="option">
+        <button
+          class="btn btn-edit btn-sep icon-edit"
+          [disabled]="!selected"
+          (click)="editAdmission()"
+        >
+          Edytuj
+        </button>
+      </div>
 
-          <div class="option">
-            <button class="btn btn-view btn-sep icon-info" [disabled]="!selected">Podgląd</button>
-          </div>
-
-          <div class="option">
-            <button class="btn btn-add btn-sep icon-plus" routerLink="new">Dodaj</button>
-          </div>
-          
-          <div class="option">
-            <button class="btn btn-edit btn-sep icon-edit" [disabled]="!selected" (click)="editAdmission()">Edytuj</button>
-          </div>
-          
-          <div class="option">
-            <button class="btn btn-delete btn-sep icon-trash" [disabled]="!selected" (click)="deleteAdmission()">Usuń</button>
-          </div>
-          
-        </div>
-
+      <div class="option">
+        <button
+          class="btn btn-delete btn-sep icon-trash"
+          [disabled]="!selected"
+          (click)="deleteAdmission()"
+        >
+          Usuń
+        </button>
+      </div>
     </div>
-
+  </div>
 </div>
+
+<!-- <div class="preview-box" *ngIf="preview">
+  <fa-icon
+    class="exit-icon"
+    [icon]="faWindowClose"
+    (click)="closePreview()"
+  ></fa-icon>
+
+  <div class="preview-row">
+    <div class="preview-value">
+      <span>Field</span>
+      <p>{{ admissions[selectedId - 1].field }}</p>
+    </div>
+
+    <div class="preview-value">
+      <span>Faculty</span>
+      <p>{{ admissions[selectedId - 1].faculty }}</p>
+    </div>
+
+    <div class="preview-value">
+      <span>Capacity</span>
+      <p>
+        {{ admissions[selectedId - 1].startDate | date: "mediumDate" }} -
+        {{ admissions[selectedId - 1].endDate | date: "mediumDate" }}
+      </p>
+    </div>
+  </div>
+
+  <div class="preview-row">
+    <div class="preview-value">
+      <span>Lecturers Place</span>
+      <p>{{ admissions[selectedId - 1].lecturersPlace }}</p>
+    </div>
+
+    <div class="preview-value">
+      <span>Submission Place</span>
+      <p>{{ admissions[selectedId - 1].submissionPlace }}</p>
+    </div>
+
+    <div class="preview-value">
+      <span>Capacity</span>
+      <p>{{ admissions[selectedId - 1].capacity }}</p>
+    </div>
+  </div>
+
+  <div class="preview-row">
+    <div class="preview-value long-text-wrapper">
+      <span>Requirements</span>
+      <p
+        class="long-text"
+        [innerHtml]="admissions[selectedId - 1].requirements"
+      ></p>
+    </div>
+
+    <div class="preview-value">
+      <span>Description</span>
+      <p
+        class="long-text"
+        [innerHtml]="admissions[selectedId - 1].description"
+      ></p>
+    </div>
+  </div>
+</div> -->

@@ -4,9 +4,9 @@
             <ng-template carouselSlide [id]="building.id">
                 <img [src]="building.src" [alt]="building.alt" [title]="building.title" class="building-img">
                 <div class="carousel-jumbotron" [ngClass]="building.class">
-                    <h3>Lorem, ipsum.</h3>
+                    <h3>Witamy</h3>
                     <p>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, eius!
+                        Uniwersytet Zielonogórski, najlepsze miejsce do nauki.
                     </p>
                 </div>
             </ng-template>
@@ -52,12 +52,12 @@
                     <h2><i>Certyfikowanych wykładowców</i></h2>
                 </div>
                 <div class="col-md-4 stats-info">
-                    <h1><i>4</i></h1>
-                    <h2><i>Kursów dyplomowych</i></h2>
+                    <h1><i>3</i></h1>
+                    <h2><i>Instytuty</i></h2>
                 </div>
                 <div class="col-md-4 stats-info">
-                    <h1><i>8</i></h1>
-                    <h2><i>Specjalizacji</i></h2>
+                    <h1><i>7</i></h1>
+                    <h2><i>Najlępszy Universytet w Polsce</i></h2>
                 </div>
             </div>
 
@@ -65,7 +65,7 @@
                 <div class="col-md-12 center-div">
                     <div class="inner-div">
                         <h2>Wybierz swoją przyszłość</h2>
-                        <button class="apply-button" routerLink="admissions">
+                        <button class="apply-button" (click)="goToAdmissions()">
                             Aplikuj Teraz
                         </button>
                     </div>

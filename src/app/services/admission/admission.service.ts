@@ -21,11 +21,11 @@ export class AdmissionService {
     return this.httpClient.put(this.baseUrl + id, admissionPayload);
   }
 
-  getSubmissionById(id: number): Observable<AdmissionModel> {
+  getAdmissionById(id: number): Observable<AdmissionModel> {
     return this.httpClient.get<AdmissionModel>(this.baseUrl + id);
   }
 
-  getAllAdmissions(): Observable<Array<AdmissionModel>> {
+  getAdmissions(): Observable<Array<AdmissionModel>> {
     return this.httpClient.get<Array<AdmissionModel>>(this.baseUrl);
   }
 

@@ -1,88 +1,149 @@
 <div class="form-container">
+  <div class="form-title">
+    <!-- <h3>Nowy Kierunek</h3> -->
+    <div *ngIf="fieldIdentifier !== undefined; else title"><h3>{{ reverseIdentifier(fieldIdentifier) }}</h3></div>
 
-    <div class="form-title">
-        <h3>Nowy Kierunek</h3>
+    <ng-template #title><h3> Nowy kierunek </h3></ng-template>
+  </div>
+
+  <form [formGroup]="fieldForm" (ngSubmit)="saveField()">
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Nazwa Kierunku</h5>
+          <div [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Podaj nazwę..."
+              [formControlName]="'name'"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Wydział</h5>
+          <div
+            class="select-wrapper"
+            [ngClass]="{ 'is-invalid': submitted && f.faculty.errors }"
+          >
+            <select name="faculty" id="faculty" [formControlName]="'faculty'">
+              <option selected disabled>Wybierz wydział</option>
+              <option value="{{ facultyKeys[0] }}">{{ faculties.IMEI }}</option>
+              <option value="{{ facultyKeys[1] }}">{{ faculties.ISSI }}</option>
+              <option value="{{ facultyKeys[2] }}">{{ faculties.IAEE }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <form>
-        
-        <div class="form-row">
-
-            <div class="form-group">
-                
-                <div class="form-field-control">
-                    <h5 class="field-label">Nazwa Kierunku</h5>
-                    <input type="text" name="" id="" placeholder="Podaj nazwę...">
-                </div>
-            
-            </div>
-
-            <div class="form-group">
-
-                <div class="form-field-control">
-                    <h5 class="field-label">Wydział</h5>
-                    <div class="select-wrapper">
-                        <select name="" id="">
-                            <option selected disabled>Wybierz wydział</option>
-                            <option value="2">Great</option>
-                            <option value="3">Nice Solution</option>
-                            <option value="4">Awesome</option>
-                        </select>
-                    </div>
-                </div>
-
-            </div>
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Logo / Zdjęcie</h5>
+          <div class="file-input" [ngClass]="{ 'is-file-invalid': submitted && f.file.errors }">
+            <input
+              type="file"
+              id="file"
+              class="file"
+              [formControlName]="'file'"
+              (change)="upload($event)"
+            />
+            <label for="file">
+              Wybierz
+              <p class="file-name"></p>
+            </label>
+            {{ selectedFile }}
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <div class="form-field-control">
-                    <h5 class="field-label">Opis kierunku</h5>
-                    <editor [init]="{
-                        height: 200,
-                        menubar: false,
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table paste code help wordcount'
-                        ],
-                        toolbar:
-                            'undo redo | formatselect | bold italic backcolor | \
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Opis kierunku</h5>
+          <editor
+            name="description"
+            id="description"
+            [formControlName]="'description'"
+            [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+            [init]="{
+              height: 200,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
                             alignleft aligncenter alignright alignjustify | \
                             bullist numlist outdent indent | removeformat | help'
-                        }">
-                    </editor>
-                </div>
-            </div>
+            }"
+          >
+          </editor>
         </div>
+      </div>
+    </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <div class="form-field-control">
-                    <h5 class="field-label">Dlaczego warto studiować</h5>
-                    <editor [init]="{
-                        height: 200,
-                        menubar: false,
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table paste code help wordcount'
-                        ],
-                        toolbar:
-                            'undo redo | formatselect | bold italic backcolor | \
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Dlaczego warto studiować</h5>
+          <editor
+            name="benefits"
+            id="benefits"
+            [formControlName]="'benefits'"
+            [ngClass]="{ 'is-invalid': submitted && f.benefits.errors }"
+            [init]="{
+              height: 200,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
                             alignleft aligncenter alignright alignjustify | \
                             bullist numlist outdent indent | removeformat | help'
-                        }">
-                    </editor>
-                </div>
-            </div>
+            }"
+          >
+          </editor>
         </div>
+      </div>
+    </div>
 
-        <div class="form-button-row">
-            <button class="btn btn-back" (click)="onBackClick()">Cofnij</button>
-            <button class="btn btn-add">Zapisz</button>
-        </div>
+    <div class="form-errors">
+      <div class="errors" *ngIf="!f.faculty.valid && f.faculty.touched">
+        Wydział musi zostać wybrany.
+      </div>
 
-    </form>
+      <div class="errors" *ngIf="!f.name.valid && f.name.touched">
+        Nazwa musi zostać podana.
+      </div>
 
+      <div class="errors" *ngIf="!f.description.valid && f.description.touched">
+        Opis musi być wypełniony.
+      </div>
+
+      <div class="errors" *ngIf="!f.benefits.valid && f.benefits.touched">
+        Należy podać dlaczego warto studiować.
+      </div>
+
+      <div class="errors" *ngIf="!f.file.valid && f.file.touched">
+        Logo musi zostać wybrane.
+      </div>
+    </div>
+
+    <div class="form-button-row">
+      <button class="btn btn-back" (click)="onBackClick()">Cofnij</button>
+      <button class="btn btn-add">Zapisz</button>
+    </div>
+  </form>
 </div>

@@ -1,112 +1,156 @@
 <div class="form-container">
+  <div class="form-title">
+    <div *ngIf="specIdentifier !== undefined; else title"><h3>{{ reverseIdentifier(specIdentifier) }}</h3></div>
 
-    <div class="form-title">
-        <h3>Nowa specjalizacja</h3>
+    <ng-template #title><h3> Nowa specjalizacja </h3></ng-template>
+  </div>
+
+  <form [formGroup]="specForm" (ngSubmit)="saveSpecialization()">
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Nazwa specjalizacji</h5>
+          <div [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Podaj nazwę..."
+              [formControlName]="'name'"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Kierunek</h5>
+          <div
+            class="select-wrapper"
+            [ngClass]="{ 'is-invalid': submitted && f.field.errors }"
+          >
+            <select name="field" id="field" [formControlName]="'field'">
+              <option *ngFor="let field of fields" [value]="field.identifier">
+                {{ field.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <form>
-        
-        <div class="form-row">
-
-            <div class="form-group">
-
-                <div class="form-field-control">
-                    <h5 class="field-label">Nazwa specjalizacji</h5>
-                    <input type="text" name="" id="" placeholder="Podaj nazwę...">
-                </div>
-
-            </div>
-
-            <div class="form-group">
-
-                <div class="form-field-control">
-
-                    <h5 class="field-label">Wydział</h5>
-                    <div class="select-wrapper">
-                        <select name="" id="">
-                            <option selected disabled>Wybierz wydział</option>
-                            <option value="2">Great</option>
-                            <option value="3">Nice Solution</option>
-                            <option value="4">Awesome</option>
-                        </select>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group">
-                <div class="form-field-control">
-                    <h5 class="field-label">Opis specjalizacji</h5>
-                    <editor [init]="{
-                        height: 200,
-                        menubar: false,
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table paste code help wordcount'
-                        ],
-                        toolbar:
-                            'undo redo | formatselect | bold italic backcolor | \
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Opis specjalizacji</h5>
+          <editor
+          name="description"
+          id="description"
+          [formControlName]="'description'"
+          [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+            [init]="{
+              height: 200,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
                             alignleft aligncenter alignright alignjustify | \
                             bullist numlist outdent indent | removeformat | help'
-                        }">
-                    </editor>
-                </div>
-            </div>
+            }"
+          >
+          </editor>
         </div>
+      </div>
+    </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <div class="form-field-control">
-                    <h5 class="field-label">Korzyści / wiedza do zdobycia</h5>
-                    <editor [init]="{
-                        height: 200,
-                        menubar: false,
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table paste code help wordcount'
-                        ],
-                        toolbar:
-                            'undo redo | formatselect | bold italic backcolor | \
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Korzyści / wiedza do zdobycia</h5>
+          <editor
+          name="knowledge"
+          id="knowledge"
+          [formControlName]="'knowledge'"
+          [ngClass]="{ 'is-invalid': submitted && f.knowledge.errors }"
+            [init]="{
+              height: 200,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
                             alignleft aligncenter alignright alignjustify | \
                             bullist numlist outdent indent | removeformat | help'
-                        }">
-                    </editor>
-                </div>
-            </div>
+            }"
+          >
+          </editor>
         </div>
+      </div>
+    </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <div class="form-field-control">
-                    <h5 class="field-label">Możliwa przyszła praca</h5>
-                    <editor [init]="{
-                        height: 200,
-                        menubar: false,
-                        plugins: [
-                            'advlist autolink lists link image charmap print preview anchor',
-                            'searchreplace visualblocks code fullscreen',
-                            'insertdatetime media table paste code help wordcount'
-                        ],
-                        toolbar:
-                            'undo redo | formatselect | bold italic backcolor | \
+    <div class="form-row">
+      <div class="form-group">
+        <div class="form-field-control">
+          <h5 class="field-label">Możliwa przyszła praca</h5>
+          <editor
+          id="jobs"
+          name="jobs"
+          [formControlName]="'jobs'"
+          [ngClass]="{ 'is-invalid': submitted && f.jobs.errors }"
+            [init]="{
+              height: 200,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
                             alignleft aligncenter alignright alignjustify | \
                             bullist numlist outdent indent | removeformat | help'
-                        }">
-                    </editor>
-                </div>
-            </div>
+            }"
+          >
+          </editor>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-errors">
+        <div class="errors" *ngIf="!f.field.valid && f.field.touched">
+          Kierunek musi zostać wybrany.
+        </div>
+  
+        <div class="errors" *ngIf="!f.description.valid && f.description.touched">
+          Opis musi być wypełniony.
+        </div>
+  
+        <div class="errors" *ngIf="!f.name.valid && f.name.touched">
+            Nazwa musi zostać podana.
         </div>
 
-        <div class="form-button-row">
-            <button class="btn btn-back" (click)="onBackClick()">Cofnij</button>
-            <button class="btn btn-add">Zapisz</button>
+        <div class="errors" *ngIf="!f.jobs.valid && f.jobs.touched">
+            Możliwa przyszła praca musi zostać podana.
         </div>
 
-    </form>
+        <div
+          class="errors"
+          *ngIf="!f.knowledge.valid && f.knowledge.touched"
+        >
+          Korzyści (możliwa wiedza do zdobycia) muszą być wypełnione.
+        </div>
+      </div>
 
+    <div class="form-button-row">
+      <button class="btn btn-back" (click)="onBackClick()">Cofnij</button>
+      <button class="btn btn-add">Zapisz</button>
+    </div>
+  </form>
 </div>

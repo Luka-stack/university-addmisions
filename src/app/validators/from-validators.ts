@@ -15,7 +15,7 @@ export class FormValidators {
         const password = group.controls['password'].value;
         const passwordConfirm = group.controls['passwordConfirm'];
 
-        if (passwordConfirm.errors && !passwordConfirm.errors.mustMatch) {
+        if (passwordConfirm.errors && !passwordConfirm.errors?.mustMatch) {
             return group;
         }
 
@@ -31,8 +31,6 @@ export class FormValidators {
 
     static onlyLetters(control: FormControl): ValidationErrors {
         let regexp = new RegExp(`^[${pL}]{2,}$`);
-
-        console.log(regexp.test(control.value));
 
         if (control.value !== null && !regexp.test(control.value)) {
             return { 'notOnlyLetters' : true }

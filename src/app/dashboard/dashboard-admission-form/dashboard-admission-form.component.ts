@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AdmissionService } from 'src/app/services/admission/admission.service';
 import { throwError } from 'rxjs';
+
+import { AdmissionService } from 'src/app/services/admission/admission.service';
+import { getIdentifier, faculties } from '../../utilities/helpers';
+import { FieldModel } from 'src/app/shared/model/field.model';
+import { FieldService } from 'src/app/services/field/field.service';
 
 @Component({
   selector: 'app-dashboard-admission-form',
@@ -14,10 +18,14 @@ export class DashboardAdmissionFormComponent implements OnInit {
   admissionId: number;
   admissionForm!: FormGroup;
   submitted = false;
+  faculties = faculties;
+  facultyKeys = Object.keys(faculties);
+  fields: Array<FieldModel>;
 
   constructor(private router: Router, private activateRoute: ActivatedRoute,
-              private admissionService: AdmissionService) {
+              private admissionService: AdmissionService, private fieldService: FieldService) {
     this.admissionId = this.activateRoute.snapshot.params.id;
+    this.getFields();
   }
 
   ngOnInit(): void {
@@ -44,8 +52,16 @@ export class DashboardAdmissionFormComponent implements OnInit {
     this.router.navigateByUrl("/dashboard/admissions");
   }
 
+  getFields() {
+    this.fieldService.getFields().subscribe(data => {
+      this.fields = data;
+    }, error => {
+      throwError(error);
+    })
+  }
+
   getAdmission() {
-    this.admissionService.getSubmissionById(this.admissionId).subscribe( data => {
+    this.admissionService.getAdmissionById(this.admissionId).subscribe( data => {
 
       let month = data.startDate[1] > 9 ? data.startDate[1] : "0"+ data.startDate[1];
       let day = data.startDate[2] > 9 ? data.startDate[2] : "0"+ data.startDate[2];
